@@ -1,0 +1,187 @@
+/* This mixin allows you to choose the bluring of elements seperately for each element affected by 
+the mixin by entering a custom value */
+/* Imports the SCSS-library which contains all of my SCSS-mixins */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --site-color: #83e0ad; /* Root element allows me to change the css of the whole top layer of the html*/
+}
+
+header {
+  height: 10vh; /* By setting the size of the header to vh, the header only takes up 10% of the available screen size */
+  width: 100vw; /* By setting the width as 100vh I can make sure that the header takes up the width of the whole screen */
+  color: rgb(12, 52, 32);
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end; /* By setting align-items as flex-end, the affected elements are placed at the bottom of the allowed space. This allows for the same header to contain enough space for the navbar so that it does not overlap */
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: rgb(58, 107, 61);
+  /* By using include we can include a mixin from the library without having to manually write the code */
+}
+
+main {
+  height: 80vh;
+  width: 100vw;
+  background-color: var(--site-color); /* By setting the background color as the varying site color which was earlier defined, I can avoid having to manually set every color */
+  color: rgb(12, 47, 33);
+  display: flex; /* By displaying as flex, we can use flexbox to manipulate the positioning of our elements*/
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  height: 10vh; /* The different sizes of the header, main and footer combine to 100vh which is the size of the whole screen, meaning that these three build up the size of a screen */
+  width: 100vw;
+  background-color: var(--site-color);
+  color: black;
+  text-align: center;
+}
+
+.navbar {
+  margin: 0;
+  padding: 0;
+  position: fixed; /* Position fixed keeps the navbar in the same position no matter where you are on the page */
+  top: 10;
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end; /* By setting align-items as flex-end, the affected elements are placed at the bottom of the allowed space. This allows for the same header to contain enough space for the navbar so that it does not overlap */
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: rgb(58, 107, 61);
+  z-index: 1; /* By setting the z-index as 1, we place the navbar at the front to prevent overlapping of the dfferent elements */
+  text-decoration: none;
+}
+
+h1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end; /* By setting align-items as flex-end, the affected elements are placed at the bottom of the allowed space. This allows for the same header to contain enough space for the navbar so that it does not overlap */
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: rgb(58, 107, 61);
+}
+
+body {
+  background-color: var(--site-color);
+}
+
+.navbar a {
+  float: left;
+  padding: 10px;
+  list-style-type: none;
+  color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 0.1px solid #111111;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: rgb(12, 47, 33);
+}
+
+#CapybaraHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end; /* By setting align-items as flex-end, the affected elements are placed at the bottom of the allowed space. This allows for the same header to contain enough space for the navbar so that it does not overlap */
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: rgb(58, 107, 61);
+}
+
+#PetCapybara {
+  filter: blur(0.5px);
+  /* Because of the structure of the mixin, we are allowed to enter a custom value to determine the setting of the bluring */
+  width: 350px;
+  height: 75%;
+  border-radius: 75px;
+  border: 7px solid rgb(58, 107, 61);
+  border-style: double;
+  margin-left: 250px;
+}
+
+#CapybaraFood {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  margin-top: 25px;
+}
+
+#FoodText {
+  margin-left: 75px; /* Margin-left and margin of other directions allows me to give an element a margin which only stretches in one direction */
+  margin-right: 75px;
+  margin-bottom: 200px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#NavItem {
+  text-decoration: none;
+}
+
+#Capyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#CapybaraFacts {
+  margin: 25px;
+  width: 600px;
+  margin-left: 200px;
+}
+
+#FactsImage {
+  margin: 25px;
+  margin-left: 25px;
+  border-radius: 75px; /* Border-radius allows me to round the corners of affected elements */
+  border: 7px solid rgb(58, 107, 61);
+  border-style: double;
+}
+
+.container2 {
+  display: grid; /* Displays affected elements in a grid for easy positioning */
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 5px;
+}
+
+.container {
+  display: inline-block;
+  text-align: center;
+}
+
+#HomeImage {
+  margin: 50px;
+  border-radius: 75px;
+  border: 7px solid rgb(58, 107, 61);
+  border-style: double;
+  height: 170px;
+  width: 170px;
+}
+
+#HomeText {
+  width: 900px;
+  display: inline-block;
+  text-align: center;
+}
+
+.CapybaraHuman {
+  width: 600px;
+  margin-left: 75px;
+  margin-right: 250px;
+}
+
+.container3 {
+  display: grid; /* Displays affected elements in a grid for easy positioning */
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 5px;
+}/*# sourceMappingURL=styles.css.map */

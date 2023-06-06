@@ -1,0 +1,69 @@
+@mixin flexbox {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end; /* By setting align-items as flex-end, the affected elements are placed at the bottom of the allowed space. This allows for the same header to contain enough space for the navbar so that it does not overlap */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: rgb(58, 107, 61);
+  }
+
+@mixin flexbox2 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  margin-top: 25px;
+}
+
+@mixin fontproperties($color_shadow) {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: $fontSize;
+    font-weight: bold;
+    text-shadow: 2px 2px $color_shadow;
+ }
+ 
+@mixin fontprop {
+    font-family:'Times New Roman', Times, serif;
+}
+
+@mixin Bluring($blurSize) {
+  filter: blur($blurSize);
+} /* This mixin allows you to choose the bluring of elements seperately for each element affected by 
+the mixin by entering a custom value */
+
+@mixin Width($width) {
+  filter: width($width);
+}
+
+@mixin NavBar {
+  float: left;
+  padding: 10px;
+  list-style-type: none;
+  color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 0.1px solid #111111;
+  text-decoration: none;
+
+}
+
+@mixin Size {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+@mixin Margin {
+  margin-left: 250px;
+}
+
+@mixin Border {
+  border: 7px solid rgb(58, 107, 61);
+  border-style: double;
+}
+
+@mixin Grid {
+  display: grid; /* Displays affected elements in a grid for easy positioning */
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 5px;
+}

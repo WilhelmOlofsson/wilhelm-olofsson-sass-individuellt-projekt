@@ -1,0 +1,148 @@
+@import './library.scss'; /* Imports the SCSS-library which contains all of my SCSS-mixins */
+
+*{
+  margin:0px;
+  padding: 0px;
+ } 
+
+:root {
+  --site-color: #83e0ad; /* Root element allows me to change the css of the whole top layer of the html*/
+ }
+
+header {
+  height: 10vh; /* By setting the size of the header to vh, the header only takes up 10% of the available screen size */
+  width: 100vw; /* By setting the width as 100vh I can make sure that the header takes up the width of the whole screen */
+  color: rgb(12, 52, 32);
+  @include flexbox; /* By using include we can include a mixin from the library without having to manually write the code */
+ }
+
+main {
+  height: 80vh; 
+  width: 100vw;
+  background-color: var(--site-color); /* By setting the background color as the varying site color which was earlier defined, I can avoid having to manually set every color */
+  color: rgb(12, 47, 33);
+  display: flex; /* By displaying as flex, we can use flexbox to manipulate the positioning of our elements*/
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+ }
+
+footer {
+  height: 10vh; /* The different sizes of the header, main and footer combine to 100vh which is the size of the whole screen, meaning that these three build up the size of a screen */
+  width: 100vw; 
+  background-color: var(--site-color);
+  color: black;
+  text-align: center;
+ }
+ 
+.navbar {
+    margin: 0;
+    padding: 0;
+    position: fixed; /* Position fixed keeps the navbar in the same position no matter where you are on the page */
+    top: 10;
+    width: 100%;
+    height: 5vh;
+    @include flexbox; 
+    z-index: 1; /* By setting the z-index as 1, we place the navbar at the front to prevent overlapping of the dfferent elements */
+    text-decoration: none;
+}
+
+h1 {
+  @include flexbox; 
+}
+
+body {
+  background-color: var(--site-color);
+}
+
+.navbar a {
+  @include NavBar;
+}
+
+.navbar a:hover {
+  background-color: rgb(12, 47, 33);
+}
+
+#CapybaraHeader {
+  @include flexbox;
+}
+
+#PetCapybara {
+  @include Bluring(0.5px); /* Because of the structure of the mixin, we are allowed to enter a custom value to determine the setting of the bluring */
+  width: 350px;
+  height: 75%;
+  border-radius: 75px;
+  @include Border;
+  margin-left: 250px;
+
+}
+
+#CapybaraFood {
+  @include Size;
+  @include flexbox2;
+}
+
+
+#FoodText {
+  margin-left: 75px; /* Margin-left and margin of other directions allows me to give an element a margin which only stretches in one direction */
+  margin-right: 75px;
+  margin-bottom: 200px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#NavItem {
+  text-decoration: none; 
+}
+
+#Capyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#CapybaraFacts {
+  margin: 25px;
+  width: 600px;
+  margin-left: 200px;
+}
+
+#FactsImage {
+  margin: 25px;
+  margin-left: 25px;
+  border-radius: 75px; /* Border-radius allows me to round the corners of affected elements */
+  @include Border;
+} 
+
+.container2 {
+  @include Grid;
+} 
+
+.container {
+  display: inline-block;
+  text-align: center;
+}
+
+#HomeImage {
+  margin: 50px;
+  border-radius: 75px;
+  @include Border;
+  height: 170px;
+  width: 170px;
+}
+
+#HomeText {
+  width: 900px;
+  display: inline-block;
+  text-align: center;
+}
+
+.CapybaraHuman {
+  width: 600px;
+  margin-left: 75px;
+  margin-right: 250px;
+}
+
+.container3 {
+  @include Grid;
+}
